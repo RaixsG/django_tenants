@@ -48,8 +48,6 @@ SHARED_APPS = (
 
 TENANT_APPS = (
     # apps que sólo viven en cada tenant
-    # 'myapp.hotels',
-    # 'myapp.houses',
     'apps.tasks',
 )
 
