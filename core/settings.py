@@ -35,10 +35,10 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 SHARED_APPS = (
-    'django_tenants',           # obligatorio
-    'apps.customers',                # tu app de Tenant
+    'django_tenants', # obligatorio
+    'apps.customers', # tu app de Tenant
     'django.contrib.contenttypes',
-     # everything below here is optional
+    # everything below here is optional
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sessions',
@@ -48,21 +48,14 @@ SHARED_APPS = (
     # THIRD_PARTY_APPS
     'adrf',
     'rest_framework',
+    # LOCAL_APPS
+    'apps.users',
 )
 
 TENANT_APPS = (
     # apps que sólo viven en cada tenant
     'apps.tasks',
 )
-
-# INSTALLED_APPS = [
-#     'django.contrib.admin',
-#     'django.contrib.auth',
-#     'django.contrib.contenttypes',
-#     'django.contrib.sessions',
-#     'django.contrib.messages',
-#     'django.contrib.staticfiles',
-# ]
 
 INSTALLED_APPS = list(SHARED_APPS) + [app for app in TENANT_APPS if app not in SHARED_APPS]
 
@@ -106,12 +99,6 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django_tenants.postgresql_backend',
-    #     'OPTIONS': {
-    #         'service': env.db(),
-    #     }
-    # }
     'default': env.db(engine='django_tenants.postgresql_backend')
 }
 
@@ -149,6 +136,11 @@ USE_I18N = True
 
 USE_TZ = True
 
+AUTH_USER_MODEL = 'users.User'
+
+APPEND_SLASH = True
+
+SITE_ID = 1 # Sirve para el manejo de los dominios
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/

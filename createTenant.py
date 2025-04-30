@@ -13,7 +13,7 @@ instance = Client.objects.create(
     paid_until="2099-12-31",
 )
 Domain.objects.create(
-    domain="mainclient.com",
+    domain="localhost",
     tenant=instance,
     is_primary=True,
 )
