@@ -48,6 +48,7 @@ SHARED_APPS = (
     # THIRD_PARTY_APPS
     'adrf',
     'rest_framework',
+    'drf_spectacular',
     # LOCAL_APPS
     'apps.users',
 )
@@ -84,6 +85,14 @@ REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     # 'PAGE_SIZE': 50,
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Tenants API',
+    'DESCRIPTION': 'Test project for Django Tenants',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
 }
 
 MIDDLEWARE = [
