@@ -63,6 +63,29 @@ TENANT_MODEL = "customers.Client" # app.Model
 
 TENANT_DOMAIN_MODEL = "customers.Domain"  # app.Model
 
+REST_FRAMEWORK = {
+    # Formato para la serialización de fechas
+    "DATETIME_FORMAT": "%d-%m-%Y %H:%M:%S",
+    "DATETIME_INPUT_FORMATS": [
+        "%d-%m-%Y %H:%M:%S",
+    ],
+    "DATE_FORMAT": "%d-%m-%Y",
+    "DATE_INPUT_FORMATS": ["%d-%m-%Y"],
+    
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # 'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    # 'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    # 'PAGE_SIZE': 50,
+}
+
 MIDDLEWARE = [
     'django_tenants.middleware.main.TenantMainMiddleware',
     'django.middleware.security.SecurityMiddleware',
