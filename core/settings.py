@@ -37,24 +37,32 @@ ALLOWED_HOSTS = ['*']
 SHARED_APPS = (
     'django_tenants', # obligatorio
     'apps.customers', # tu app de Tenant
-    'django.contrib.contenttypes',
+    # 'django.contrib.contenttypes',
     # everything below here is optional
     'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.sites',
-    'django.contrib.staticfiles',
+    # 'django.contrib.auth',
+    # 'django.contrib.sessions',
+    # 'django.contrib.messages',
+    # 'django.contrib.sites',
+    # 'django.contrib.staticfiles',
     # THIRD_PARTY_APPS
     'adrf',
     'rest_framework',
     'drf_spectacular',
     # LOCAL_APPS
-    'apps.users',
+    # 'apps.users',
 )
 
 TENANT_APPS = (
+    'django.contrib.contenttypes',
+    # 'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.sites',
+    'django.contrib.staticfiles',
     # apps que sólo viven en cada tenant
+    'apps.users',
     'apps.tasks',
 )
 

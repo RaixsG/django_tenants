@@ -11,7 +11,7 @@ class ClientAdmin(TenantAdminMixin, admin.ModelAdmin):
     ordering = ('-id',)
 
 @admin.register(Domain)
-class DomainAdmin(admin.ModelAdmin):
+class DomainAdmin(TenantAdminMixin, admin.ModelAdmin):
     list_display = ('id', 'domain', 'tenant', 'is_primary')
     search_fields = ('domain',)
     list_filter = ('is_primary',)
