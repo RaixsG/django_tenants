@@ -37,25 +37,25 @@ ALLOWED_HOSTS = ['*']
 SHARED_APPS = (
     'django_tenants', # obligatorio
     'apps.customers', # tu app de Tenant
-    # 'django.contrib.contenttypes',
     # everything below here is optional
+    'django.contrib.contenttypes',
     'django.contrib.admin',
-    # 'django.contrib.auth',
-    # 'django.contrib.sessions',
-    # 'django.contrib.messages',
-    # 'django.contrib.sites',
-    # 'django.contrib.staticfiles',
+    'django.contrib.auth',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.sites',
+    'django.contrib.staticfiles',
     # THIRD_PARTY_APPS
     'adrf',
     'rest_framework',
     'drf_spectacular',
     # LOCAL_APPS
-    # 'apps.users',
+    'apps.users',
 )
 
 TENANT_APPS = (
     'django.contrib.contenttypes',
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -71,6 +71,8 @@ INSTALLED_APPS = list(SHARED_APPS) + [app for app in TENANT_APPS if app not in S
 TENANT_MODEL = "customers.Client" # app.Model
 
 TENANT_DOMAIN_MODEL = "customers.Domain"  # app.Model
+
+ALLOWED_HOSTS = ['localhost', 'tenant', '127.0.0.1']
 
 REST_FRAMEWORK = {
     # Formato para la serialización de fechas
@@ -114,7 +116,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'core.urls'
+ROOT_URLCONF = 'core.tenant_urls' # Url para los tenants
+PUBLIC_SCHEMA_URLCONF = 'core.urls' # Url para el admin / public
 
 TEMPLATES = [
     {
