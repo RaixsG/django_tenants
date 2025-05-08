@@ -72,7 +72,8 @@ TENANT_MODEL = "customers.Client" # app.Model
 
 TENANT_DOMAIN_MODEL = "customers.Domain"  # app.Model
 
-ALLOWED_HOSTS = ['localhost', 'tenant', '127.0.0.1']
+# ALLOWED_HOSTS = ['localhost', 'tenant', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 REST_FRAMEWORK = {
     # Formato para la serialización de fechas
@@ -116,8 +117,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'core.tenant_urls' # Url para los tenants
-PUBLIC_SCHEMA_URLCONF = 'core.urls' # Url para el admin / public
+ROOT_URLCONF = 'core.urls' # Url para los tenants
 
 TEMPLATES = [
     {
