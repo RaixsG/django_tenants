@@ -12,3 +12,6 @@ crear entorno/instalar requirements/activar entorno
 
 # Crear admin para un tenant especifico desde terminal
 - python3 manage.py tenant_command createsuperuser --schema="nombre del schema"
+
+# Levantar servidor de manera async con
+- uvicorn core.asgi:application --reload --port 8001
