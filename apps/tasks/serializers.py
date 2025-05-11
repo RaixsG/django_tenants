@@ -1,4 +1,4 @@
-from adrf.serializers import Serializer, ModelSerializer
+# from adrf.serializers import Serializer, ModelSerializer
 from rest_framework import serializers
 from utils.serializers_base import WritableNestedModelAsyncSerializer, AsyncSerializer
 
